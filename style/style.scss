@@ -3,9 +3,50 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-family: "Open Sans";
+	overflow-wrap: break-word;
+	outline: none;
 }
+$colorBlack: #000;
+$colorBlackOpacityOne: rgba(0, 0, 0, 0.1);
+$colorBlackOpacityTwo: rgba(0, 0, 0, 0.5);
+$colorWhite: #fff;
+
+$backgroundWrapper: rgb(173, 215, 240);
+
+$backgroundCapsule: rgb(173, 215, 235);
+$boxshadowCapsule: rgb(104, 181, 226);
+
+$backgroundInput: rgb(191, 223, 241);
+$borderInput: rgb(94, 170, 214);
+$colorTextInputPlaceholder: rgba(42, 75, 94, 0.7);
+
+$backgroundBtnEnter: rgb(127, 183, 216);
+$colorTextBtnEnter: #464646;
+$backgroundHoverBtnEnter: rgb(169, 204, 224);
+$colorTextHoverBtnEnter: #272727;
+$backgroundActiveBtnEnter: rgb(102, 163, 199);
+
+$backgroundBtnEdit: rgb(130, 212, 223);
+$colorTextBtnEdit: #464646;
+$backgroundHoverBtnEdit: rgb(161, 217, 224);
+$colorTextHoverBtnEdit: #272727;
+$backgroundActiveBtnEdit: rgb(94, 190, 202);
+
+$backgroundBtnDelete: rgb(226, 160, 210);
+$colorTextBtnDelete: #464646;
+$backgroundHoverBtnDelete: rgb(224, 183, 214);
+$colorTextHoverBtnDelete: #272727;
+$backgroundActiveBtnDelete: rgb(218, 127, 195);
+
 input {
 	cursor: pointer;
+}
+button {
+	cursor: pointer;
+	text-transform: uppercase;
+	font-family: "Raleway";
+	font-weight: 700;
 }
 .container {
 	max-width: 1440px;
@@ -13,25 +54,138 @@ input {
 	margin: 0 auto;
 	padding: 0 16px;
 }
+
 .wrapper {
+	height: 100vh; //need to fix
+	padding: 100px 0;
+	background-color: $backgroundWrapper;
 	&__form {
-		display: grid;
-		grid-template-columns: repeat(5, 1fr);
-		column-gap: 10px;
-		margin-bottom: 15px;
+		display: flex;
+		margin-bottom: 40px;
 	}
-	&__item {
-		padding: 1rem 1.5rem;
-		border: 3px solid;
+	&__itemInput {
+		max-width: 435px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		margin-right: 45px;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&__label {
+		margin-bottom: 15px;
+		font-size: 25px;
+		font-weight: 600;
+		line-height: 28px;
+	}
+	&__input {
+		width: 100%; //to fix
+		padding: 15px 10px;
+		border: 1px solid $borderInput;
+		border-radius: 10px;
+		background-color: $backgroundInput;
+		font-size: 20px;
+		line-height: 24px;
+		&::placeholder {
+			font-size: 20px;
+			color: $colorTextInputPlaceholder;
+		}
 	}
 	&__btnEnter {
-		padding: 15px;
+		max-width: 435px;
+		width: 100%;
+		padding: 15px 0;
+		font-size: 24px;
+		line-height: 28px;
+		color: $colorTextBtnEnter;
+		border: 1px solid $colorBlackOpacityTwo;
+		border-radius: 10px;
+		background-color: $backgroundBtnEnter;
+		transition: all 0.3s linear;
+		&:hover {
+			color: $colorTextHoverBtnEnter;
+			background-color: $backgroundHoverBtnEnter;
+			box-shadow: 0 1px 2px $colorBlackOpacity;
+		}
+		&:active {
+			color: $colorBlack;
+			background-color: $backgroundActiveBtnEnter;
+			box-shadow: 0 3px 5px $backgroundActiveBtnEnter inset;
+		}
+	}
+	&__item {
+		padding: 10px 0;
+
+		display: flex;
+		column-gap: 45px;
+		row-gap: 25px;
+		flex-wrap: wrap;
+	}
+	&__capsule {
+		padding: 10px;
+		max-width: 435px;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		border-radius: 10px;
+		background-color: $backgroundCapsule;
+		box-shadow: 5px 5px 15px 5px $boxshadowCapsule;
+	}
+	&__text {
+		margin-bottom: 15px;
+		max-width: 100%;
+		font-size: 22px;
+		font-weight: 600;
+		line-height: 26px;
+	}
+	&__capsuleBtn {
+		display: flex;
+		justify-content: space-between;
 	}
 	&__btnEdit {
-		padding: 15px;
-		margin-right: 15px;
+		max-width: 180px;
+		width: 100%;
+		padding: 15px 0;
+		font-size: 20px;
+		line-height: 24px;
+		color: $colorTextBtnEdit;
+		border: 1px solid $colorBlackOpacityTwo;
+		border-radius: 10px;
+		background-color: $backgroundBtnEdit;
+		transition: all 0.3s linear;
+		&:hover {
+			color: $colorTextHoverBtnEdit;
+			background-color: $backgroundHoverBtnEdit;
+			box-shadow: 0 1px 2px $colorBlackOpacity;
+		}
+		&:active {
+			color: $colorBlack;
+			background-color: $backgroundActiveBtnEdit;
+			box-shadow: 0 3px 5px $backgroundActiveBtnEdit inset;
+		}
 	}
 	&__btnDelete {
-		padding: 15px;
+		max-width: 180px;
+		width: 100%;
+		padding: 15px 0;
+		font-size: 20px;
+		line-height: 24px;
+		color: $colorTextBtnDelete;
+		border: 1px solid $colorBlackOpacityTwo;
+		border-radius: 10px;
+		background-color: $backgroundBtnDelete;
+		transition: all 0.3s linear;
+		&:hover {
+			color: $colorTextHoverBtnDelete;
+			background-color: $backgroundHoverBtnDelete;
+			box-shadow: 0 1px 2px $colorBlackOpacity;
+		}
+		&:active {
+			color: $colorBlack;
+			background-color: $backgroundActiveBtnDelete;
+			box-shadow: 0 3px 5px $backgroundActiveBtnDelete inset;
+		}
 	}
 }
