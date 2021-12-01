@@ -122,7 +122,7 @@ button {
 	box-shadow: 0 3px 5px #66a3c7 inset;
 }
 
-.wrapper__item {
+.wrapper__toDo {
 	padding: 10px 0;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -153,15 +153,28 @@ button {
 	-webkit-box-shadow: 5px 5px 15px 5px #68b5e2;
 	box-shadow: 5px 5px 15px 5px #68b5e2;
 }
-
-.wrapper__text {
-	margin-bottom: 15px;
-	max-width: 100%;
+.wrapper__tittleName {
+	margin-bottom: 5px;
 	font-size: 22px;
 	font-weight: 600;
 	line-height: 26px;
 }
-
+.wrapper__tittle {
+	margin-bottom: 15px;
+	font-size: 20px;
+	line-height: 24px;
+}
+.wrapper__descriptionName {
+	margin-bottom: 5px;
+	font-size: 22px;
+	font-weight: 600;
+	line-height: 26px;
+}
+.wrapper__description {
+	margin-bottom: 15px;
+	font-size: 20px;
+	line-height: 24px;
+}
 .wrapper__capsuleBtn {
 	display: -webkit-box;
 	display: -ms-flexbox;

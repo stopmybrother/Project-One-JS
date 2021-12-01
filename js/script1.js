@@ -1,31 +1,16 @@
-const inputTittle = document.querySelector("#inputTittle");
-const inputDescription = document.querySelector("#inputDescription");
-const clickBtn = document.querySelector("#clickBtn");
-const wrapperItem = document.querySelector("#wrapperItem");
+const drawList = (dataType) => {
+	const toDoSection = document.querySelector("#toDo");
 
-const data = [];
-let obj = {};
+	toDoSection.innerHTML = "";
 
-clickBtn.addEventListener("click", () => {
-	obj = {
-		tittle: "",
-		description: "",
-	}; // not sure
-
-	obj.tittle = inputTittle.value;
-	obj.description = inputDescription.value;
-
-	inputTittle.value = "";
-	inputDescription.value = "";
-
-	data.push(obj);
-	wrapperItem.innerHTML = "";
-	data.forEach((_item, index, array) => {
-		wrapperItem.innerHTML += `
+	dataType.forEach((item) => {
+		toDoSection.innerHTML += `
 			<div class="wrapper__capsule">
-				<div class="wrapper__capsuleText">
-					<p class="wrapper__text">Tittle: ${array[index].tittle}</p>
-					<p class="wrapper__text">Description: ${array[index].description}</p>
+				<div class="wrapper__capsuleFull">
+					<p class="wrapper__tittleName">Tittle:</p>
+					<p class="wrapper__tittle">${item.tittle}</p>
+					<p class="wrapper__descriptionName">Decscription:</p>
+					<p class="wrapper__description">${item.description}</p>
 				</div>
 				<div class="wrapper__capsuleBtn">
 					<button class="wrapper__btnEdit">edit</button>
@@ -34,5 +19,55 @@ clickBtn.addEventListener("click", () => {
 			</div>
 		`;
 	});
-	console.log(data);
-});
+};
+
+const init = () => {
+	const toDoList = document.querySelector(".wrapper__toDoList");
+	const form = document.querySelector("#form");
+	const inputTittle = document.querySelector("#inputTittle");
+	const inputDescription = document.querySelector("#inputDescription");
+	const clickBtn = document.querySelector("#clickBtn");
+
+	const data = {
+		toDo: [],
+		inProgress: [],
+		done: [],
+	};
+
+	clickBtn.addEventListener("click", (event) => {
+		event.preventDefault();
+
+		data.toDo.push({
+			tittle: inputTittle.value,
+			description: inputDescription.value,
+		});
+
+		form.reset();
+
+		drawList(data.toDo);
+	});
+
+	toDoList.addEventListener("click", (event) => {
+		switch (event.target.classList.value) {
+			case "wrapper__btnDelete":
+				const card = event.target.closest(".wrapper__capsule");
+				const tittle = card.querySelector(".wrapper__tittle").textContent;
+				const description = card.querySelector(".wrapper__description").textContent;
+
+				data.toDo.forEach((item, index) => {
+					if (item.tittle === tittle && item.description === description) {
+						data.toDo.splice(index, 1);
+					}
+				});
+				drawList(data.toDo);
+				console.log(data.toDo);
+				break;
+			case "wrapper__btnEdit":
+				console.log(event.target);
+				break;
+			default:
+				break;
+		}
+	});
+};
+init();
