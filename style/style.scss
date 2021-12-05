@@ -16,7 +16,7 @@ $backgroundWrapper: rgb(173, 215, 240);
 $backgroundModalWrapper: rgba(40, 106, 145, 0.5);
 
 $backgroundtoDoItem: rgb(173, 215, 235);
-$backgroundModal: rgb(119, 194, 230);
+$backgroundModal: rgb(173, 215, 240);
 $borderModal: rgba(16, 46, 63, 0.6);
 $boxshadowtoDoItem: rgb(104, 181, 226);
 
@@ -50,17 +50,17 @@ $backgroundHoverBtnBegin: rgb(170, 214, 168);
 $colorHoverBtnBegin: #272727;
 $backgroundActiveBtnBegin: rgb(77, 214, 72);
 
-$backgroundBtnClose: rgb(224, 114, 114);
+$backgroundBtnClose: rgb(223, 155, 155);
 $colorTextBtnClose: #464646;
-$backgroundHoverBtnClose: rgb(230, 166, 166);
+$backgroundHoverBtnClose: rgb(223, 181, 181);
 $colorTextHoverBtnClose: #272727;
-$backgroundActiveBtnClose: rgb(228, 80, 80);
+$backgroundActiveBtnClose: rgb(216, 116, 116);
 
-$backgroundBtnSubmit: rgb(92, 163, 221);
+$backgroundBtnSubmit: rgb(98, 182, 231);
 $colorTextBtnSubmit: #464646;
-$backgroundHoverBtnSubmit: rgb(150, 194, 230);
+$backgroundHoverBtnSubmit: rgb(133, 192, 226);
 $colorTextHoverBtnSubmit: #272727;
-$backgroundActiveBtnSubmit: rgb(47, 133, 204);
+$backgroundActiveBtnSubmit: rgb(73, 172, 230);
 body {
 	background-color: $backgroundWrapper;
 }
@@ -321,29 +321,29 @@ button {
 	&__modalInputTittle {
 		max-width: 280px;
 		width: 100%;
-		padding: 15px 5px;
+		padding: 15px 10px;
 		border: 1px solid $borderModalInput;
 		border-radius: 10px;
 		background-color: $backgroundModalInput;
 		font-size: 16px;
 		line-height: 20px;
 		&::placeholder {
-			font-size: 14px;
-			line-height: 18px;
+			font-size: 16px;
+			line-height: 20px;
 		}
 	}
 	&__modalInputDescription {
 		max-width: 280px;
 		width: 100%;
-		padding: 15px 5px;
+		padding: 15px 10px;
 		border: 1px solid $borderModalInput;
 		border-radius: 10px;
 		background-color: $backgroundModalInput;
 		font-size: 16px;
 		line-height: 20px;
 		&::placeholder {
-			font-size: 14px;
-			line-height: 18px;
+			font-size: 16px;
+			line-height: 20px;
 		}
 	}
 	&__roundButton {
@@ -353,7 +353,7 @@ button {
 		width: 40px;
 		height: 40px;
 		border: 1px solid $colorBlackOpacityTwo;
-		border-radius: 50%;
+		border-radius: 15px;
 		background-color: $backgroundBtnClose;
 		color: $colorTextBtnClose;
 		transition: all 0.3s linear;

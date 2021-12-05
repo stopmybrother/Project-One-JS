@@ -354,7 +354,7 @@ button {
   padding: 100px 30px 50px;
   border: 2px solid rgba(16, 46, 63, 0.6);
   border-radius: 10px;
-  background-color: #77c2e6;
+  background-color: #add7f0;
 }
 
 .wrapper__modalForm {
@@ -388,7 +388,7 @@ button {
 .wrapper__modalInputTittle {
   max-width: 280px;
   width: 100%;
-  padding: 15px 5px;
+  padding: 15px 10px;
   border: 1px solid rgba(43, 100, 133, 0.6);
   border-radius: 10px;
   background-color: #d3e6f1;
@@ -397,29 +397,29 @@ button {
 }
 
 .wrapper__modalInputTittle::-webkit-input-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .wrapper__modalInputTittle:-ms-input-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .wrapper__modalInputTittle::-ms-input-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .wrapper__modalInputTittle::placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .wrapper__modalInputDescription {
   max-width: 280px;
   width: 100%;
-  padding: 15px 5px;
+  padding: 15px 10px;
   border: 1px solid rgba(43, 100, 133, 0.6);
   border-radius: 10px;
   background-color: #d3e6f1;
@@ -428,23 +428,23 @@ button {
 }
 
 .wrapper__modalInputDescription::-webkit-input-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .wrapper__modalInputDescription:-ms-input-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .wrapper__modalInputDescription::-ms-input-placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .wrapper__modalInputDescription::placeholder {
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
 .wrapper__roundButton {
@@ -454,8 +454,8 @@ button {
   width: 40px;
   height: 40px;
   border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  background-color: #e07272;
+  border-radius: 15px;
+  background-color: #df9b9b;
   color: #464646;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
@@ -463,16 +463,16 @@ button {
 
 .wrapper__roundButton:hover {
   color: #272727;
-  background-color: #e6a6a6;
+  background-color: #dfb5b5;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .wrapper__roundButton:active {
   color: #000;
-  background-color: #e45050;
-  -webkit-box-shadow: 0 0 3px #e45050 inset;
-          box-shadow: 0 0 3px #e45050 inset;
+  background-color: #d87474;
+  -webkit-box-shadow: 0 0 3px #d87474 inset;
+          box-shadow: 0 0 3px #d87474 inset;
 }
 
 .wrapper__submitButton {
@@ -483,7 +483,7 @@ button {
   width: 100%;
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  background-color: #5ca3dd;
+  background-color: #62b6e7;
   color: #464646;
   font-size: 20px;
   line-height: 24px;
@@ -493,16 +493,16 @@ button {
 
 .wrapper__submitButton:hover {
   color: #272727;
-  background-color: #96c2e6;
+  background-color: #85c0e2;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .wrapper__submitButton:active {
   color: #000;
-  background-color: #2f85cc;
-  -webkit-box-shadow: 0 3px 5px #2f85cc inset;
-          box-shadow: 0 3px 5px #2f85cc inset;
+  background-color: #49ace6;
+  -webkit-box-shadow: 0 3px 5px #49ace6 inset;
+          box-shadow: 0 3px 5px #49ace6 inset;
 }
 
 .wrapper__inProgress {
