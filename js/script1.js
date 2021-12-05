@@ -28,12 +28,46 @@ const deleteCard = (dataType, tittle, description) => {
 			dataType.splice(index, 1);
 		}
 	});
+	drawList(dataType);
 };
 
-const editCard = () => {}; //to fix
+const editCard = (dataType, tittle, description) => {
+	const modalWrapper = document.querySelector(".wrapper__modalGeneralWrapper");
+	modalWrapper.style.display = "block";
+
+	const closeButton = document.querySelector("#closeButton");
+	closeButton.addEventListener("click", () => {
+		modalWrapper.style.display = "none";
+	});
+
+	const tittleInModal = document.querySelector(".wrapper__modalInputTittle");
+	const descriptionInModal = document.querySelector(
+		".wrapper__modalInputDescription"
+	);
+
+	tittleInModal.value = tittle;
+	descriptionInModal.value = description;
+
+	const submitButton = document.querySelector(".wrapper__submitButton");
+
+	submitButton.addEventListener("click", (event) => {
+		event.preventDefault();
+
+		dataType.forEach((item, index) => {
+			if (item.tittle === tittle && item.description === description) {
+				dataType.splice(index, 1, {
+					tittle: tittleInModal.value,
+					description: descriptionInModal.value,
+				});
+			}
+		});
+
+		modalWrapper.style.display = "none";
+		drawList(dataType);
+	});
+};
 
 const init = () => {
-	const modalWrapper = document.querySelector(".wrapper__modalGeneralWrapper");
 	const toDoList = document.querySelector(".wrapper__toDoList");
 	const form = document.querySelector("#form");
 	const inputTittle = document.querySelector("#inputTittle");
@@ -67,51 +101,19 @@ const init = () => {
 				const description = card.querySelector(".wrapper__description").textContent;
 
 				deleteCard(data.toDo, tittle, description);
-				drawList(data.toDo);
 				break;
 
 			case "wrapper__btnEdit":
-				modalWrapper.style.display = "block";
-
-				const closeButton = document.querySelector("#closeButton");
-				closeButton.addEventListener("click", () => {
-					modalWrapper.style.display = "none";
-				});
-
 				const cardForModal = event.target.closest(".wrapper__toDoItem");
 				const tittleForModal =
 					cardForModal.querySelector(".wrapper__tittle").textContent;
 				const descriptionForModal = cardForModal.querySelector(
 					".wrapper__description"
 				).textContent;
-
-				const tittleInModal = document.querySelector(".wrapper__modalInputTittle");
-				const descriptionInModal = document.querySelector(
-					".wrapper__modalInputDescription"
-				);
-
-				tittleInModal.value = tittleForModal;
-				descriptionInModal.value = descriptionForModal;
-
-				const submitButton = document.querySelector(".wrapper__submitButton");
-
-				submitButton.addEventListener("click", (event) => {
-					event.preventDefault();
-
-					data.toDo.forEach((item, index) => {
-						if (
-							item.tittle === tittleForModal &&
-							item.description === descriptionForModal
-						) {
-							data.toDo.splice(index, 1, {
-								tittle: tittleInModal.value,
-								description: descriptionInModal.value,
-							});
-						}
-					});
-					modalWrapper.style.display = "none";
-					drawList(data.toDo);
-				});
+				editCard(data.toDo, tittleForModal, descriptionForModal);
+				break;
+			case "wrapper__BtnBegin":
+				
 				break;
 			default:
 				break;

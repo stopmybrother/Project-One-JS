@@ -11,11 +11,39 @@
 		<header class="header">
 			<div class="container">
 				<h1 class="header__tittle">ToDo List</h1>
+				<form action="" class="header__form" id="form">
+					<div class="header__itemInput">
+						<label for="#inputTittle" class="header__label">Tittle</label>
+						<input
+							type="text"
+							id="inputTittle"
+							class="header__input"
+							placeholder="Enter tittle"
+						/>
+					</div>
+					<div class="header__itemInput">
+						<label for="#inputDescription" class="header__label">Description</label>
+						<input
+							type="text"
+							id="inputDescription"
+							class="header__input"
+							placeholder="Enter description"
+						/>
+					</div>
+					<button id="clickBtn" class="header__btnEnter">enter</button>
+				</form>
+
+				<div class="header__tittles">
+					<h3 class="header__toDoListTittle">To do:</h3>
+					<h3 class="header__toDoListTittle">In progress:</h3>
+					<h3 class="header__toDoListTittle">Done:</h3>
+				</div>
 			</div>
+
 		</header>
 		<section class="wrapper">
 			<div class="container">
-				<form action="" class="wrapper__form" id="form">
+				<!-- <form action="" class="wrapper__form" id="form">
 					<div class="wrapper__itemInput">
 						<label for="#inputTittle" class="wrapper__label">Tittle</label>
 						<input
@@ -41,7 +69,7 @@
 					<h3 class="wrapper__toDoListTittle">To do:</h3>
 					<h3 class="wrapper__toDoListTittle">In progress:</h3>
 					<h3 class="wrapper__toDoListTittle">Done:</h3>
-				</div>
+				</div> -->
 
 				<div id="" class="wrapper__toDoList">
 					<div id="toDo" class="wrapper__toDo"></div>
