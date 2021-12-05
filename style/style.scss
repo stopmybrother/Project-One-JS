@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Corinthia:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
 	margin: 0;
 	padding: 0;
@@ -13,12 +13,17 @@ $colorBlackOpacityTwo: rgba(0, 0, 0, 0.5);
 $colorWhite: #fff;
 
 $backgroundWrapper: rgb(173, 215, 240);
+$backgroundModalWrapper: rgba(40, 106, 145, 0.5);
 
-$backgroundCapsule: rgb(173, 215, 235);
-$boxshadowCapsule: rgb(104, 181, 226);
+$backgroundtoDoItem: rgb(173, 215, 235);
+$backgroundModal: rgb(119, 194, 230);
+$borderModal: rgba(16, 46, 63, 0.6);
+$boxshadowtoDoItem: rgb(104, 181, 226);
 
 $backgroundInput: rgb(191, 223, 241);
+$backgroundModalInput: rgb(211, 230, 241);
 $borderInput: rgb(94, 170, 214);
+$borderModalInput: rgba(43, 100, 133, 0.6);
 $colorTextInputPlaceholder: rgba(42, 75, 94, 0.7);
 
 $backgroundBtnEnter: rgb(127, 183, 216);
@@ -39,6 +44,26 @@ $backgroundHoverBtnDelete: rgb(224, 183, 214);
 $colorTextHoverBtnDelete: #272727;
 $backgroundActiveBtnDelete: rgb(218, 127, 195);
 
+$backgroundBtnBegin: rgb(117, 219, 114);
+$colorTextBtnBegin: #464646;
+$backgroundHoverBtnBegin: rgb(170, 214, 168);
+$colorHoverBtnBegin: #272727;
+$backgroundActiveBtnBegin: rgb(77, 214, 72);
+
+$backgroundBtnClose: rgb(224, 114, 114);
+$colorTextBtnClose: #464646;
+$backgroundHoverBtnClose: rgb(230, 166, 166);
+$colorTextHoverBtnClose: #272727;
+$backgroundActiveBtnClose: rgb(228, 80, 80);
+
+$backgroundBtnSubmit: rgb(92, 163, 221);
+$colorTextBtnSubmit: #464646;
+$backgroundHoverBtnSubmit: rgb(150, 194, 230);
+$colorTextHoverBtnSubmit: #272727;
+$backgroundActiveBtnSubmit: rgb(47, 133, 204);
+body {
+	background-color: $backgroundWrapper;
+}
 input {
 	cursor: pointer;
 }
@@ -54,11 +79,17 @@ button {
 	margin: 0 auto;
 	padding: 0 16px;
 }
-
+.header {
+	padding: 60px 0 10px;
+	&__tittle {
+		text-align: center;
+		font-family: "Corinthia";
+		font-size: 100px;
+		line-height: 106px;
+	}
+}
 .wrapper {
-	height: 100vh; //need to fix
-	padding: 100px 0;
-	background-color: $backgroundWrapper;
+	padding: 30px 0;
 	&__form {
 		display: flex;
 		margin-bottom: 40px;
@@ -106,7 +137,7 @@ button {
 		&:hover {
 			color: $colorTextHoverBtnEnter;
 			background-color: $backgroundHoverBtnEnter;
-			box-shadow: 0 1px 2px $colorBlackOpacity;
+			box-shadow: 0 1px 2px $colorBlackOpacityOne;
 		}
 		&:active {
 			color: $colorBlack;
@@ -114,15 +145,36 @@ button {
 			box-shadow: 0 3px 5px $backgroundActiveBtnEnter inset;
 		}
 	}
+	&__tittles {
+		display: flex;
+		flex-direction: row;
+		column-gap: 30px;
+	}
+	&__toDoListTittle {
+		max-width: calc(100% / 3);
+		width: 100%;
+		margin: 0 auto 15px;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 26px;
+		line-height: 30px;
+		font-weight: 600;
+	}
+	&__toDoList {
+		display: flex;
+		flex-direction: row;
+		column-gap: 30px;
+	}
 	&__toDo {
 		padding: 10px 0;
-
+		max-width: calc(100% / 3);
+		width: 100%;
 		display: flex;
 		column-gap: 45px;
 		row-gap: 25px;
 		flex-wrap: wrap;
 	}
-	&__capsule {
+	&__toDoItem {
 		padding: 10px;
 		max-width: 435px;
 		width: 100%;
@@ -130,8 +182,8 @@ button {
 		flex-direction: column;
 		justify-content: space-between;
 		border-radius: 10px;
-		background-color: $backgroundCapsule;
-		box-shadow: 5px 5px 15px 5px $boxshadowCapsule;
+		background-color: $backgroundtoDoItem;
+		box-shadow: 5px 5px 15px 5px $boxshadowtoDoItem;
 	}
 	&__tittleName {
 		margin-bottom: 5px;
@@ -155,9 +207,10 @@ button {
 		font-size: 20px;
 		line-height: 24px;
 	}
-	&__capsuleBtn {
+	&__toDoBtn {
 		display: flex;
 		justify-content: space-between;
+		margin-bottom: 20px;
 	}
 	&__btnEdit {
 		max-width: 180px;
@@ -173,7 +226,7 @@ button {
 		&:hover {
 			color: $colorTextHoverBtnEdit;
 			background-color: $backgroundHoverBtnEdit;
-			box-shadow: 0 1px 2px $colorBlackOpacity;
+			box-shadow: 0 1px 2px $colorBlackOpacityOne;
 		}
 		&:active {
 			color: $colorBlack;
@@ -195,12 +248,166 @@ button {
 		&:hover {
 			color: $colorTextHoverBtnDelete;
 			background-color: $backgroundHoverBtnDelete;
-			box-shadow: 0 1px 2px $colorBlackOpacity;
+			box-shadow: 0 1px 2px $colorBlackOpacityOne;
 		}
 		&:active {
 			color: $colorBlack;
 			background-color: $backgroundActiveBtnDelete;
 			box-shadow: 0 3px 5px $backgroundActiveBtnDelete inset;
 		}
+	}
+	&__BtnBegin {
+		display: block;
+		margin-left: auto;
+		padding: 10px;
+		max-width: 80px;
+		width: 100%;
+		color: $colorTextBtnBegin;
+		border: 1px solid $colorBlackOpacityTwo;
+		border-radius: 20px;
+		background-color: $backgroundBtnBegin;
+		transition: all 0.3s linear;
+		&:hover {
+			color: $colorHoverBtnBegin;
+			background-color: $backgroundHoverBtnBegin;
+			box-shadow: 0 1px 2px $colorBlackOpacityOne;
+		}
+		&:active {
+			color: $colorBlack;
+			background-color: $backgroundActiveBtnBegin;
+			box-shadow: 0 3px 5px $backgroundActiveBtnBegin inset;
+		}
+	}
+	&__modalGeneralWrapper {
+		display: none;
+	}
+	&__modalWrapper {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: $backgroundModalWrapper;
+	}
+	&__modal {
+		position: relative;
+		max-width: 500px;
+		width: 100%;
+		padding: 100px 30px 50px;
+		border: 2px solid $borderModal;
+		border-radius: 10px;
+		background-color: $backgroundModal;
+	}
+	&__modalForm {
+		display: flex;
+		flex-direction: column;
+	}
+	&__modalItem {
+		max-width: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 15px;
+	}
+	&__modalLabel {
+		padding: 15px 0;
+		font-size: 20px;
+		line-height: 24px;
+	}
+	&__modalInputTittle {
+		max-width: 280px;
+		width: 100%;
+		padding: 15px 5px;
+		border: 1px solid $borderModalInput;
+		border-radius: 10px;
+		background-color: $backgroundModalInput;
+		font-size: 16px;
+		line-height: 20px;
+		&::placeholder {
+			font-size: 14px;
+			line-height: 18px;
+		}
+	}
+	&__modalInputDescription {
+		max-width: 280px;
+		width: 100%;
+		padding: 15px 5px;
+		border: 1px solid $borderModalInput;
+		border-radius: 10px;
+		background-color: $backgroundModalInput;
+		font-size: 16px;
+		line-height: 20px;
+		&::placeholder {
+			font-size: 14px;
+			line-height: 18px;
+		}
+	}
+	&__roundButton {
+		position: absolute;
+		top: 15px;
+		right: 15px;
+		width: 40px;
+		height: 40px;
+		border: 1px solid $colorBlackOpacityTwo;
+		border-radius: 50%;
+		background-color: $backgroundBtnClose;
+		color: $colorTextBtnClose;
+		transition: all 0.3s linear;
+		&:hover {
+			color: $colorTextHoverBtnClose;
+			background-color: $backgroundHoverBtnClose;
+			box-shadow: 0 1px 2px $colorBlackOpacityOne;
+		}
+		&:active {
+			color: $colorBlack;
+			background-color: $backgroundActiveBtnClose;
+			box-shadow: 0 0 3px $backgroundActiveBtnClose inset;
+		}
+	}
+	&__submitButton {
+		display: block;
+		margin: 30px auto 0;
+		padding: 15px;
+		max-width: 200px;
+		width: 100%;
+		border: 1px solid $colorBlackOpacityTwo;
+		border-radius: 10px;
+		background-color: $backgroundBtnSubmit;
+		color: $colorTextBtnSubmit;
+		font-size: 20px;
+		line-height: 24px;
+		transition: all 0.3s linear;
+		&:hover {
+			color: $colorTextHoverBtnSubmit;
+			background-color: $backgroundHoverBtnSubmit;
+			box-shadow: 0 1px 2px $colorBlackOpacityOne;
+		}
+		&:active {
+			color: $colorBlack;
+			background-color: $backgroundActiveBtnSubmit;
+			box-shadow: 0 3px 5px $backgroundActiveBtnSubmit inset;
+		}
+	}
+	&__inProgress {
+		padding: 10px 0;
+		max-width: calc(100% / 3);
+		width: 100%;
+
+		display: flex;
+		column-gap: 45px;
+		row-gap: 25px;
+		flex-wrap: wrap;
+	}
+	&__done {
+		padding: 10px 0;
+		max-width: calc(100% / 3);
+		width: 100%;
+		display: flex;
+		column-gap: 45px;
+		row-gap: 25px;
+		flex-wrap: wrap;
 	}
 }

@@ -8,6 +8,11 @@
 		<title>Project 1</title>
 	</head>
 	<body>
+		<header class="header">
+			<div class="container">
+				<h1 class="header__tittle">ToDo List</h1>
+			</div>
+		</header>
 		<section class="wrapper">
 			<div class="container">
 				<form action="" class="wrapper__form" id="form">
@@ -32,11 +37,43 @@
 					<button id="clickBtn" class="wrapper__btnEnter">enter</button>
 				</form>
 
+				<div class="wrapper__tittles">
+					<h3 class="wrapper__toDoListTittle">To do:</h3>
+					<h3 class="wrapper__toDoListTittle">In progress:</h3>
+					<h3 class="wrapper__toDoListTittle">Done:</h3>
+				</div>
+
 				<div id="" class="wrapper__toDoList">
 					<div id="toDo" class="wrapper__toDo"></div>
-					
 					<div id="inProgress" class="wrapper__inProgress"></div>
 					<div id="done" class="wrapper__done"></div>
+				</div>
+
+				<div class="wrapper__modalGeneralWrapper">
+					<div class="wrapper__modalWrapper">
+						<div class="wrapper__modal">
+							<button class="wrapper__roundButton" id="closeButton">X</button>
+							<form action="" class="wrapper__modalForm">
+								<div class="wrapper__modalItem">
+									<label for="" class="wrapper__modalLabel">Tittle:</label>
+									<input
+										type="text"
+										class="wrapper__modalInputTittle"
+										placeholder="Edit tittle"
+									/>
+								</div>
+								<div class="wrapper__modalItem">
+									<label for="" class="wrapper__modalLabel">Description: </label>
+									<input
+										type="text"
+										class="wrapper__modalInputDescription"
+										placeholder="Edit description"
+									/>
+								</div>
+								<button class="wrapper__submitButton">Submit</button>
+							</form>
+						</div>
+					</div>
 				</div>
 			</div>
 		</section>
