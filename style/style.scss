@@ -4,8 +4,8 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: "Open Sans";
-	overflow-wrap: break-word;
 	outline: none;
+	overflow-wrap: break-word;
 }
 $colorBlack: #000;
 $colorBlackOpacityOne: rgba(0, 0, 0, 0.1);
@@ -32,6 +32,12 @@ $backgroundHoverBtnEnter: rgb(169, 204, 224);
 $colorTextHoverBtnEnter: #272727;
 $backgroundActiveBtnEnter: rgb(102, 163, 199);
 
+$backgroundBtnEmptyTrash: rgb(169, 160, 221);
+$colorTextBtnEmptyTrash: #464646;
+$backgroundHoverBtnEmptyTrash: rgb(195, 190, 221);
+$colorTextHoverBtnEmptyTrash: #272727;
+$backgroundActiveBtnEmptyTrash: rgb(134, 120, 218);
+
 $backgroundBtnEdit: rgb(130, 212, 223);
 $colorTextBtnEdit: #464646;
 $backgroundHoverBtnEdit: rgb(161, 217, 224);
@@ -44,11 +50,23 @@ $backgroundHoverBtnDelete: rgb(224, 183, 214);
 $colorTextHoverBtnDelete: #272727;
 $backgroundActiveBtnDelete: rgb(218, 127, 195);
 
-$backgroundBtnBegin: rgb(117, 219, 114);
-$colorTextBtnBegin: #464646;
-$backgroundHoverBtnBegin: rgb(170, 214, 168);
-$colorHoverBtnBegin: #272727;
-$backgroundActiveBtnBegin: rgb(77, 214, 72);
+$backgroundBtnNext: rgb(117, 219, 114);
+$colorTextBtnNext: #464646;
+$backgroundHoverBtnNext: rgb(170, 214, 168);
+$colorTextHoverBtnNext: #272727;
+$backgroundActiveBtnNext: rgb(77, 214, 72);
+
+$backgroundBtnRestore: rgb(221, 172, 109);
+$colorTextBtnRestore: #464646;
+$backgroundHoverBtnRestore: rgb(219, 184, 138);
+$colorTextHoverBtnRestore: #272727;
+$backgroundActiveBtnRestore: rgb(221, 152, 62);
+
+$backgroundBtnFinish: rgb(121, 133, 199);
+$colorTextBtnFinish: #464646;
+$backgroundHoverBtnFinish: rgb(147, 155, 197);
+$colorTextHoverBtnFinish: #272727;
+$backgroundActiveBtnFinish: rgb(83, 100, 196);
 
 $backgroundBtnClose: rgb(223, 155, 155);
 $colorTextBtnClose: #464646;
@@ -97,7 +115,7 @@ button {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		margin-right: 45px;
+		margin-right: 52px;
 		&:last-child {
 			margin-right: 0;
 		}
@@ -143,41 +161,81 @@ button {
 			box-shadow: 0 3px 5px $backgroundActiveBtnEnter inset;
 		}
 	}
-	&__tittles {
+}
+.wrapper {
+	padding: 15px 0;
+	&__toDoList {
+		max-width: 100%;
+		width: 100%;
 		display: flex;
 		flex-direction: row;
 		column-gap: 30px;
 	}
-	&__toDoListTittle {
-		max-width: calc(100% / 3);
+	&__toDoListItem {
+		max-width: calc(100% / 4);
 		width: 100%;
-		margin: 0 auto 15px;
+	}
+	&__toDoListTittle {
+		margin: 0 auto 10px;
+		padding: 10px 0;
 		text-align: center;
 		text-transform: uppercase;
 		font-size: 26px;
 		line-height: 30px;
 		font-weight: 600;
 	}
-}
-.wrapper {
-	padding: 15px 0;
-	&__toDoList {
+	&__deletedSection {
+		margin-bottom: 16px;
 		display: flex;
-		flex-direction: row;
-		column-gap: 30px;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 26px;
+		line-height: 30px;
+		font-weight: 600;
+	}
+	&__toDoListTittleDeleted {
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 26px;
+		line-height: 30px;
+		font-weight: 600;
+	}
+	&__emptyTrashBtn {
+		max-width: 175px;
+		width: 100%;
+		padding: 10px 0;
+		font-size: 18px;
+		line-height: 22px;
+		color: $colorTextBtnEmptyTrash;
+		border: 1px solid $colorBlackOpacityTwo;
+		border-radius: 10px;
+		background-color: $backgroundBtnEmptyTrash;
+		transition: all 0.3s linear;
+		&:hover {
+			color: $colorTextHoverBtnEmptyTrash;
+			background-color: $backgroundHoverBtnEmptyTrash;
+			box-shadow: 0 1px 2px $colorBlackOpacityOne;
+		}
+		&:active {
+			color: $colorBlack;
+			background-color: $backgroundActiveBtnEmptyTrash;
+			box-shadow: 0 3px 5px $backgroundActiveBtnEmptyTrash inset;
+		}
 	}
 	&__toDo {
 		padding: 10px 0;
-		max-width: calc(100% / 3);
+		max-width: 100%;
 		width: 100%;
 		display: flex;
 		column-gap: 45px;
 		row-gap: 25px;
 		flex-wrap: wrap;
 	}
-	&__toDoItem {
+	&__card {
 		padding: 10px;
-		max-width: 435px;
+		max-width: 325px;
 		width: 100%;
 		display: flex;
 		flex-direction: column;
@@ -194,8 +252,8 @@ button {
 	}
 	&__tittle {
 		margin-bottom: 15px;
-		font-size: 20px;
-		line-height: 24px;
+		font-size: 22px;
+		line-height: 26px;
 	}
 	&__descriptionName {
 		margin-bottom: 5px;
@@ -208,13 +266,13 @@ button {
 		font-size: 20px;
 		line-height: 24px;
 	}
-	&__toDoBtn {
+	&__editAndDeleteBtns {
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: 20px;
 	}
 	&__btnEdit {
-		max-width: 180px;
+		max-width: 150px;
 		width: 100%;
 		padding: 15px 0;
 		font-size: 20px;
@@ -236,7 +294,7 @@ button {
 		}
 	}
 	&__btnDelete {
-		max-width: 180px;
+		max-width: 150px;
 		width: 100%;
 		padding: 15px 0;
 		font-size: 20px;
@@ -257,26 +315,48 @@ button {
 			box-shadow: 0 3px 5px $backgroundActiveBtnDelete inset;
 		}
 	}
-	&__BtnBegin {
+	&__btnNext {
 		display: block;
 		margin-left: auto;
 		padding: 10px;
 		max-width: 80px;
 		width: 100%;
-		color: $colorTextBtnBegin;
+		color: $colorTextBtnNext;
 		border: 1px solid $colorBlackOpacityTwo;
 		border-radius: 20px;
-		background-color: $backgroundBtnBegin;
+		background-color: $backgroundBtnNext;
 		transition: all 0.3s linear;
 		&:hover {
-			color: $colorHoverBtnBegin;
-			background-color: $backgroundHoverBtnBegin;
+			color: $colorTextHoverBtnNext;
+			background-color: $backgroundHoverBtnNext;
 			box-shadow: 0 1px 2px $colorBlackOpacityOne;
 		}
 		&:active {
 			color: $colorBlack;
-			background-color: $backgroundActiveBtnBegin;
-			box-shadow: 0 3px 5px $backgroundActiveBtnBegin inset;
+			background-color: $backgroundActiveBtnNext;
+			box-shadow: 0 3px 5px $backgroundActiveBtnNext inset;
+		}
+	}
+	&__btnRestore {
+		display: block;
+		margin-left: auto;
+		padding: 10px;
+		max-width: 100px;
+		width: 100%;
+		color: $colorTextBtnRestore;
+		border: 1px solid $colorBlackOpacityTwo;
+		border-radius: 20px;
+		background-color: $backgroundBtnRestore;
+		transition: all 0.3s linear;
+		&:hover {
+			color: $colorTextHoverBtnRestore;
+			background-color: $backgroundHoverBtnRestore;
+			box-shadow: 0 1px 2px $colorBlackOpacityOne;
+		}
+		&:active {
+			color: $colorBlack;
+			background-color: $backgroundActiveBtnRestore;
+			box-shadow: 0 3px 5px $backgroundActiveBtnRestore inset;
 		}
 	}
 	&__modalGeneralWrapper {
@@ -394,9 +474,8 @@ button {
 	}
 	&__inProgress {
 		padding: 10px 0;
-		max-width: calc(100% / 3);
+		max-width: 100%;
 		width: 100%;
-
 		display: flex;
 		column-gap: 45px;
 		row-gap: 25px;
@@ -404,7 +483,16 @@ button {
 	}
 	&__done {
 		padding: 10px 0;
-		max-width: calc(100% / 3);
+		max-width: 100%;
+		width: 100%;
+		display: flex;
+		column-gap: 45px;
+		row-gap: 25px;
+		flex-wrap: wrap;
+	}
+	&__deleted {
+		padding: 10px 0;
+		max-width: 100%;
 		width: 100%;
 		display: flex;
 		column-gap: 45px;

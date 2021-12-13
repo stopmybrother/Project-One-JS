@@ -5,8 +5,8 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: "Open Sans";
-  overflow-wrap: break-word;
   outline: none;
+  overflow-wrap: break-word;
 }
 
 body {
@@ -60,7 +60,7 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-right: 45px;
+  margin-right: 52px;
 }
 
 .header__itemInput:last-child {
@@ -132,7 +132,13 @@ button {
           box-shadow: 0 3px 5px #66a3c7 inset;
 }
 
-.header__tittles {
+.wrapper {
+  padding: 15px 0;
+}
+
+.wrapper__toDoList {
+  max-width: 100%;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,10 +150,14 @@ button {
           column-gap: 30px;
 }
 
-.header__toDoListTittle {
-  max-width: calc(100% / 3);
+.wrapper__toDoListItem {
+  max-width: calc(100% / 4);
   width: 100%;
-  margin: 0 auto 15px;
+}
+
+.wrapper__toDoListTittle {
+  margin: 0 auto 10px;
+  padding: 10px 0;
   text-align: center;
   text-transform: uppercase;
   font-size: 26px;
@@ -155,25 +165,63 @@ button {
   font-weight: 600;
 }
 
-.wrapper {
-  padding: 15px 0;
-}
-
-.wrapper__toDoList {
+.wrapper__deletedSection {
+  margin-bottom: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-column-gap: 30px;
-          column-gap: 30px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.wrapper__toDoListTittleDeleted {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 26px;
+  line-height: 30px;
+  font-weight: 600;
+}
+
+.wrapper__emptyTrashBtn {
+  max-width: 175px;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 18px;
+  line-height: 22px;
+  color: #464646;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  background-color: #a9a0dd;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.wrapper__emptyTrashBtn:hover {
+  color: #272727;
+  background-color: #c3bedd;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper__emptyTrashBtn:active {
+  color: #000;
+  background-color: #8678da;
+  -webkit-box-shadow: 0 3px 5px #8678da inset;
+          box-shadow: 0 3px 5px #8678da inset;
 }
 
 .wrapper__toDo {
   padding: 10px 0;
-  max-width: calc(100% / 3);
+  max-width: 100%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -185,9 +233,9 @@ button {
       flex-wrap: wrap;
 }
 
-.wrapper__toDoItem {
+.wrapper__card {
   padding: 10px;
-  max-width: 435px;
+  max-width: 325px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -214,8 +262,8 @@ button {
 
 .wrapper__tittle {
   margin-bottom: 15px;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 22px;
+  line-height: 26px;
 }
 
 .wrapper__descriptionName {
@@ -231,7 +279,7 @@ button {
   line-height: 24px;
 }
 
-.wrapper__toDoBtn {
+.wrapper__editAndDeleteBtns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -242,7 +290,7 @@ button {
 }
 
 .wrapper__btnEdit {
-  max-width: 180px;
+  max-width: 150px;
   width: 100%;
   padding: 15px 0;
   font-size: 20px;
@@ -270,7 +318,7 @@ button {
 }
 
 .wrapper__btnDelete {
-  max-width: 180px;
+  max-width: 150px;
   width: 100%;
   padding: 15px 0;
   font-size: 20px;
@@ -297,7 +345,7 @@ button {
           box-shadow: 0 3px 5px #da7fc3 inset;
 }
 
-.wrapper__BtnBegin {
+.wrapper__btnNext {
   display: block;
   margin-left: auto;
   padding: 10px;
@@ -311,18 +359,46 @@ button {
   transition: all 0.3s linear;
 }
 
-.wrapper__BtnBegin:hover {
+.wrapper__btnNext:hover {
   color: #272727;
   background-color: #aad6a8;
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper__BtnBegin:active {
+.wrapper__btnNext:active {
   color: #000;
   background-color: #4dd648;
   -webkit-box-shadow: 0 3px 5px #4dd648 inset;
           box-shadow: 0 3px 5px #4dd648 inset;
+}
+
+.wrapper__btnRestore {
+  display: block;
+  margin-left: auto;
+  padding: 10px;
+  max-width: 100px;
+  width: 100%;
+  color: #464646;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  background-color: #ddac6d;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+}
+
+.wrapper__btnRestore:hover {
+  color: #272727;
+  background-color: #dbb88a;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper__btnRestore:active {
+  color: #000;
+  background-color: #dd983e;
+  -webkit-box-shadow: 0 3px 5px #dd983e inset;
+          box-shadow: 0 3px 5px #dd983e inset;
 }
 
 .wrapper__modalGeneralWrapper {
@@ -507,7 +583,7 @@ button {
 
 .wrapper__inProgress {
   padding: 10px 0;
-  max-width: calc(100% / 3);
+  max-width: 100%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -521,7 +597,21 @@ button {
 
 .wrapper__done {
   padding: 10px 0;
-  max-width: calc(100% / 3);
+  max-width: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 45px;
+          column-gap: 45px;
+  row-gap: 25px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.wrapper__deleted {
+  padding: 10px 0;
+  max-width: 100%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;

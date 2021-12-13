@@ -32,49 +32,31 @@
 					</div>
 					<button id="clickBtn" class="header__btnEnter">enter</button>
 				</form>
-
-				<div class="header__tittles">
-					<h3 class="header__toDoListTittle">To do:</h3>
-					<h3 class="header__toDoListTittle">In progress:</h3>
-					<h3 class="header__toDoListTittle">Done:</h3>
-				</div>
 			</div>
 
 		</header>
 		<section class="wrapper">
 			<div class="container">
-				<!-- <form action="" class="wrapper__form" id="form">
-					<div class="wrapper__itemInput">
-						<label for="#inputTittle" class="wrapper__label">Tittle</label>
-						<input
-							type="text"
-							id="inputTittle"
-							class="wrapper__input"
-							placeholder="Enter tittle"
-						/>
+				<div id="toDoList" class="wrapper__toDoList">
+					<div class="wrapper__toDoListItem">
+						<h3 class="wrapper__toDoListTittle">To do:</h3>
+						<div id="toDo" class="wrapper__toDo section"></div>
 					</div>
-					<div class="wrapper__itemInput">
-						<label for="#inputDescription" class="wrapper__label">Description</label>
-						<input
-							type="text"
-							id="inputDescription"
-							class="wrapper__input"
-							placeholder="Enter description"
-						/>
+					<div class="wrapper__toDoListItem">
+						<h3 class="wrapper__toDoListTittle">In progress:</h3>
+						<div id="inProgress" class="wrapper__inProgress section"></div>
 					</div>
-					<button id="clickBtn" class="wrapper__btnEnter">enter</button>
-				</form>
-
-				<div class="wrapper__tittles">
-					<h3 class="wrapper__toDoListTittle">To do:</h3>
-					<h3 class="wrapper__toDoListTittle">In progress:</h3>
-					<h3 class="wrapper__toDoListTittle">Done:</h3>
-				</div> -->
-
-				<div id="" class="wrapper__toDoList">
-					<div id="toDo" class="wrapper__toDo"></div>
-					<div id="inProgress" class="wrapper__inProgress"></div>
-					<div id="done" class="wrapper__done"></div>
+					<div class="wrapper__toDoListItem">
+						<h3 class="wrapper__toDoListTittle">Done:</h3>
+						<div id="done" class="wrapper__done section"></div>
+					</div>
+					<div class="wrapper__toDoListItem">
+						<div class="wrapper__deletedSection">
+							<h3 class="wrapper__toDoListTittleDeleted">Deleted:</h3>
+							<button class="wrapper__emptyTrashBtn">empty trash</button>
+						</div>
+						<div id="deleted" class="wrapper__deleted section"></div>
+					</div>
 				</div>
 
 				<div class="wrapper__modalGeneralWrapper">
