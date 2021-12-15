@@ -93,7 +93,7 @@ const editCard = (eventTarget, data) => {
 	tittleInModal.value = deletedCard.tittle;
 	descriptionInModal.value = deletedCard.description;
 
-	submitButton.addEventListener("click", (event) => {
+	const editEventListener = (event) => {
 		event.preventDefault();
 
 		data[sectionId].splice(deletedCardIndex, 1, {
@@ -101,14 +101,23 @@ const editCard = (eventTarget, data) => {
 			description: descriptionInModal.value,
 			id: deletedCard.id,
 		});
-		modalWrapper.style.display = "none";
 
+		closeModal();
+	};
+
+	const closeModal = () => {
+		submitButton.removeEventListener("click", editEventListener);
+
+		modalWrapper.style.display = "none";
 		drawList(data, sectionId);
-	});
+	};
+
+	submitButton.addEventListener("click", editEventListener);
 
 	closeButton.addEventListener("click", (event) => {
 		event.preventDefault();
-		modalWrapper.style.display = "none";
+
+		closeModal();
 	});
 };
 
